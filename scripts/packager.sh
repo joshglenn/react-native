@@ -21,5 +21,5 @@ then
 fi
 # Start packager from PROJECT_ROOT
 cd "$PROJECT_ROOT" || exit
-source "${THIS_DIR}/.packager.env
+source "${THIS_DIR}/.packager.env"
 "$NODE_BINARY" "$REACT_NATIVE_ROOT/cli.js" start "$@"
