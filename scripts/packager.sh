@@ -19,7 +19,8 @@ if [ ! -d "$PROJECT_ROOT/node_modules/react-native" ];
 then
   PROJECT_ROOT="$THIS_DIR/.."
 fi
+source "${THIS_DIR}/.packager.env"
+
 # Start packager from PROJECT_ROOT
 cd "$PROJECT_ROOT" || exit
-source "${THIS_DIR}/.packager.env"
 "$NODE_BINARY" "$REACT_NATIVE_ROOT/cli.js" start "$@"

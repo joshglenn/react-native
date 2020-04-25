@@ -6,7 +6,8 @@
  */
 
 #if __OBJC__
-#import <Foundation/Foundation.h>
+#  import <Foundation/Foundation.h>
+#  import "JGCore/MetroPort.h"
 #endif
 
 /**
@@ -80,11 +81,22 @@
 #define RCT_PROFILE RCT_DEV
 #endif
 
+
+
+#ifdef CUSTOM_METRO_PORT
+#define DEF_METRO_PORT CUSTOM_METRO_PORT
+#endif
+
+#ifndef CUSTOM_METRO_PORT
+#define DEF_METRO_PORT 8081
+#endif
+
+
 /**
  * Add the default Metro packager port number
  */
 #ifndef RCT_METRO_PORT
-#define RCT_METRO_PORT 8081
+#define RCT_METRO_PORT DEF_METRO_PORT
 #else
 // test if RCT_METRO_PORT is empty
 #define RCT_METRO_PORT_DO_EXPAND(VAL) VAL##1
@@ -93,7 +105,7 @@
 // Only here if RCT_METRO_PORT is not defined
 // OR RCT_METRO_PORT is the empty string
 #undef RCT_METRO_PORT
-#define RCT_METRO_PORT 8081
+#define RCT_METRO_PORT DEF_METRO_PORT
 #endif
 #endif
 
